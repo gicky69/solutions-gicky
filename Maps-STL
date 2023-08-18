@@ -1,0 +1,36 @@
+    #include <cmath>
+    #include <cstdio>
+    #include <vector>
+    #include <iostream>
+    #include <set>
+    #include <map>
+    #include <algorithm>
+    using namespace std;
+
+
+    int main() {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+        int s, p, g;
+        string name;
+        cin >> s;
+        map<string, int> m;
+        
+        while(s--) {
+          cin >> p >> name;
+          if (p==1){
+            cin >> g;
+            m[name] +=g;
+          }
+          else if (p==2){
+            m[name] = 0;
+          }
+          else {
+            if (m.find(name) != m.end()){
+              cout << m[name] << endl;
+            }
+            else {
+              cout << "0" << endl;
+            }
+          }
+        }
+    }
