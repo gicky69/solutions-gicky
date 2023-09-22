@@ -1,0 +1,32 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    map<string, long int> phoneBook; // Use a map to store names and phone numbers
+
+    // Read the names and phone numbers into the map
+    for (int i = 0; i < n; i++) {
+        string name;
+        long int phoneNumber;
+        cin >> name >> phoneNumber;
+        phoneBook[name] = phoneNumber; // Store the name and phone number in the map
+    }
+
+    // Read the queries and look up names in the map
+    string query;
+    while (cin >> query) {
+        auto it = phoneBook.find(query); // Search for the query in the map
+
+        if (it != phoneBook.end()) { // If found
+            cout << it->first << "=" << it->second << endl;
+        } else { // If not found
+            cout << "Not found" << endl;
+        }
+    }
+
+    return 0;
+}
